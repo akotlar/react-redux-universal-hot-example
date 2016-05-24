@@ -12,3 +12,4 @@ export InfoCard from './InfoCard/InfoCard';
 export MiniInfoBar from './MiniInfoBar/MiniInfoBar';
 export SurveyForm from './SurveyForm/SurveyForm';
 export WidgetForm from './WidgetForm/WidgetForm';
+export CustomButton from './CustomButton';

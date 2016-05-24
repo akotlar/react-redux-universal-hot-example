@@ -35,7 +35,8 @@ module.exports = Object.assign({
       ],
       link: [
         {rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons'},
-        {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300', type: 'text/css'}
+        {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300', type: 'text/css'},
+        {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css', type: 'text/css'}
       ]
     }
   },
