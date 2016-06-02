@@ -116,7 +116,6 @@
     "lru-memoize": "^1.0.0",
     "map-props": "^1.0.0",
     "material-design-lite": "^1.1.1",
-    "material-ui": "file:./vendor_non_npm/material-ui",
     "multireducer": "^2.0.0",
     "normalize.css": "^4.1.1",
     "piping": "^0.3.0",

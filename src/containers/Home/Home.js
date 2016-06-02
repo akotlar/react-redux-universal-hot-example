@@ -1,14 +1,39 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { CounterButton, InfoCard, CustomButton } from 'components';
+import { CounterButton, CustomButton } from 'components';
 import config from '../../config';
 import Helmet from 'react-helmet';
+import { Card, CardMedia, CardTitle, CardText, CardActions } from 'react-toolbox/lib/card';
+import AppBar from 'react-toolbox/lib/app_bar';
+import Dropdown from 'react-toolbox/lib/dropdown';
+
+const countries = [
+  { value: 'EN-gb', label: 'England' },
+  { value: 'ES-es', label: 'Spain'},
+  { value: 'TH-th', label: 'Thailand' },
+  { value: 'EN-en', label: 'USA'}
+];
+
+const someStuff = ['John', 'Mandy', 'Alex'];
 export default class Home extends Component {
+
+  state = {
+    value: 'ES-es',
+  };
+
+  handleChange = (value) => {
+    this.setState({value: value});
+  };
+
   render() {
     const styles = require('./Home.scss');
     // require the logo image both from client and server
     const logoImage = require('./logo.png');
     return (
+      <span>
+      <AppBar fixed flat>
+        <a href="/home">React Toolbox Docs</a>
+      </AppBar>
       <div className={styles.home}>
         <Helmet title="Home"/>
         <div className={styles.masthead}>
@@ -41,9 +66,37 @@ export default class Home extends Component {
             <CounterButton multireducerKey="counter3"/>
           </div>
           <CustomButton />
-          <InfoCard />
           <p>This starter boilerplate app uses the following technologies:</p>
-         
+          <ul>
+          {someStuff.map(name => {
+            return (<Card style={{width: '350px'}}>
+              <CardTitle
+                avatar="https://placeimg.com/80/80/animals"
+                title="Avatar style title"
+                subtitle="Subtitle here"
+              />
+              <CardMedia
+                aspectRatio="wide"
+                image="https://placeimg.com/800/450/nature"
+              />
+              <CardTitle
+                title="Title goes here"
+                subtitle="Subtitle here"
+              />
+              <CardText>{name}</CardText>
+              <CardActions>
+                <CustomButton label="Action 1" />
+                <CustomButton label="Action 2" />
+              </CardActions>
+            </Card>);
+          }) };
+          </ul>
+           <Dropdown
+        auto
+        onChange={this.handleChange}
+        source={countries}
+        value={this.state.value}
+      />
           <ul>
             <li>
               <del>Isomorphic</del>
@@ -156,6 +209,7 @@ export default class Home extends Component {
           <p>– Erik Rasmussen</p>
         </div>
       </div>
+      </span>
     );
   }
 }
